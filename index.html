@@ -4,78 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IVY STUDIO MANDALAY | Premium Fashion</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'montserrat': ['Montserrat', 'sans-serif']
-                    },
-                    colors: {
-                        'ivory': '#f9f6f1',
-                        'dark-charcoal': '#333333'
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .letter-spacing-wide { letter-spacing: 0.15em; }
-        .product-card:hover .product-image img {
-            transform: scale(1.03);
-        }
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s, visibility 0.5s;
-        }
-        .loading-text span {
-            display: inline-block;
-            margin: 0 2px;
-            animation: bounce 1.5s infinite;
-        }
-        .loading-text span:nth-child(2) { animation-delay: 0.1s; }
-        .loading-text span:nth-child(3) { animation-delay: 0.2s; }
-        .loading-text span:nth-child(4) { animation-delay: 0.3s; }
-        .loading-text span:nth-child(5) { animation-delay: 0.4s; }
-        .loading-text span:nth-child(6) { animation-delay: 0.5s; }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        .fade-out {
-            opacity: 0;
-            visibility: hidden;
-        }
-        /* Image optimization styles */
-        .product-image {
-            aspect-ratio: 3/4;
-            overflow: hidden;
-            background-color: #f5f5f5;
-        }
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="font-montserrat bg-ivory text-dark-charcoal">
+<body>
     <!-- Loading Screen -->
     <div id="loading" class="loading-overlay">
-        <div class="loading-text text-2xl font-bold">
+        <div class="loading-text">
             <span>L</span>
             <span>O</span>
             <span>A</span>
@@ -85,254 +21,271 @@
             <span>G</span>
         </div>
     </div>
+
     <!-- Skip to content link -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:py-2 focus:px-4 focus:bg-black focus:text-white z-50">Skip to content</a>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
     <!-- Header -->
-    <header class="border-b border-gray-200 sticky top-0 bg-white bg-opacity-90 backdrop-blur-sm z-40">
-        <div class="container mx-auto px-4">
+    <header class="header">
+        <div class="container">
             <!-- Top bar -->
-            <div class="flex justify-between items-center py-3">
-                <div class="flex space-x-6">
-                    <a href="#" class="text-sm uppercase tracking-wider hover:underline transition">Home</a>
-                    <a href="#" class="text-sm uppercase tracking-wider hover:underline transition">Shop</a>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <button id="search-toggle" class="text-sm">
+            <div class="top-bar">
+                <nav class="nav-desktop">
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#shop" class="nav-link">Shop</a>
+                </nav>
+                
+                <div class="header-actions">
+                    <button id="search-toggle" class="action-btn" aria-label="Toggle search">
                         <i class="fas fa-search"></i>
                     </button>
-                    <a href="#" class="text-sm">
+                    <a href="#" class="action-btn" aria-label="User account">
                         <i class="fas fa-user"></i>
                     </a>
-                    <a href="#" class="text-sm relative">
+                    <a href="#" class="cart-btn" aria-label="Shopping cart">
                         <i class="fas fa-shopping-bag"></i>
-                        <span class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                        <span class="cart-count">0</span>
                     </a>
+                    <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Toggle menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </div>
+
+            <!-- Mobile Menu -->
+            <nav id="mobile-menu" class="mobile-menu">
+                <a href="#" class="mobile-nav-link">Home</a>
+                <a href="#shop" class="mobile-nav-link">Shop</a>
+                <a href="#about" class="mobile-nav-link">About</a>
+                <a href="#contact" class="mobile-nav-link">Contact</a>
+                <a href="#" class="mobile-nav-link">Account</a>
+            </nav>
+
             <!-- Logo -->
-            <div class="py-6 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold letter-spacing-wide">
-                    <span class="block">IVY</span>
-                    <span class="block">STUDIO</span>
-                    <span class="block mt-2 text-lg tracking-[0.5em]">MANDALAY</span>
+            <div class="logo">
+                <h1 class="logo-text">
+                    <span class="logo-line">IVY</span>
+                    <span class="logo-line">STUDIO</span>
+                    <span class="logo-subtext">MANDALAY</span>
                 </h1>
             </div>
         </div>
     </header>
+
     <!-- Search Bar -->
-    <div id="search-bar" class="bg-white border-b border-gray-200 px-4 py-3 transform transition-all duration-300 -translate-y-full opacity-0">
-        <div class="container mx-auto">
-            <div class="flex">
-                <input type="text" placeholder="Search products..." class="flex-grow px-4 py-2 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-black">
-                <button class="ml-2 px-4 bg-black text-white hover:bg-gray-800 transition">
+    <div id="search-bar" class="search-bar">
+        <div class="container">
+            <div class="search-form">
+                <input type="text" id="search-input" placeholder="Search products..." class="search-input">
+                <button class="search-btn" aria-label="Search">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
         </div>
     </div>
+
     <!-- Main Content -->
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="container mx-auto px-4 py-8">
-            <h2 class="sr-only">Featured Products</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Product 1 -->
-                <div class="product-card group">
-                    <div class="product-image mb-4">
-                        <img 
-                            src="./top1.jpg" 
-                            alt="Elegant Jump Suit"
-                            loading="lazy"
-                            width="600"
-                            height="800">
+        <section id="shop" class="products-section">
+            <div class="container">
+                <h2 class="section-title sr-only">Featured Products</h2>
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="./images/top1.jpg" alt="Elegant Jump Suit">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Jump Suit</h3>
+                            <p class="product-price">$89.99</p>
+                            <a href="#" class="btn btn-outline product-btn">Shop Now</a>
+                        </div>
                     </div>
-                    <div class="text-center">
-                        <h3 class="text-xl font-medium mb-2">Jump Suit</h3>
-                        <p class="text-gray-600 mb-4">$89.99</p>
-                        <a href="#" class="inline-block px-6 py-2 border border-black text-sm uppercase tracking-wider hover:bg-black hover:text-white transition duration-300">
-                            Shop Now
-                        </a>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="./images/shopping-mall-1316787_1920.jpg" alt="Comfortable Jersey Shirt">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Jersey Shirt</h3>
+                            <p class="product-price">$59.99</p>
+                            <a href="#" class="btn btn-outline product-btn">Shop Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="./images/boutique-6796399_1920.jpg" alt="Stylish Mini Skirt">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Mini Skirt</h3>
+                            <p class="product-price">$49.99</p>
+                            <a href="#" class="btn btn-outline product-btn">Shop Now</a>
+                        </div>
                     </div>
                 </div>
-                <!-- Product 2 -->
-                <div class="product-card group">
-                    <div class="product-image mb-4">
-                        <img 
-                            src="./shopping-mall-1316787_1920.jpg" 
-                            alt="Comfortable Jersey Shirt"
-                            loading="lazy"
-                            width="600"
-                            height="800">
-                    </div>
-                    <div class="text-center">
-                        <h3 class="text-xl font-medium mb-2">Jersey Shirt</h3>
-                        <p class="text-gray-600 mb-4">$59.99</p>
-                        <a href="#" class="inline-block px-6 py-2 border border-black text-sm uppercase tracking-wider hover:bg-black hover:text-white transition duration-300">
-                            Shop Now
-                        </a>
-                    </div>
-                </div>
-                <!-- Product 3 -->
-                <div class="product-card group">
-                    <div class="product-image mb-4">
-                        <img 
-                            src="./boutique-6796399_1920.jpg" 
-                            alt="Stylish Mini Skirt"
-                            loading="lazy"
-                            width="600"
-                            height="800">
-                    </div>
-                    <div class="text-center">
-                        <h3 class="text-xl font-medium mb-2">Mini Skirt</h3>
-                        <p class="text-gray-600 mb-4">$49.99</p>
-                        <a href="#" class="inline-block px-6 py-2 border border-black text-sm uppercase tracking-wider hover:bg-black hover:text-white transition duration-300">
-                            Shop Now
-                        </a>
-                    </div>
+                
+                <!-- View All Button -->
+                <div class="text-center mt-12">
+                    <a href="#" class="btn btn-primary">View All Products</a>
                 </div>
             </div>
         </section>
+        
         <!-- About Section -->
-        <section class="bg-white py-12">
-            <div class="container mx-auto px-4 text-center max-w-2xl">
-                <h2 class="text-2xl font-bold mb-6 letter-spacing-wide">ABOUT IVY STUDIO</h2>
-                <p class="mb-4">
-                    Located in the heart of Mandalay, IVY STUDIO brings contemporary fashion to Myanmar with a curated collection of premium apparel.
-                </p>
-                <p>
-                    Our pieces are designed for the modern woman who values quality, comfort, and timeless style.
-                </p>
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title text-center">ABOUT IVY STUDIO</h2>
+                <div class="about-content">
+                    <p>
+                        Located in the heart of Mandalay, IVY STUDIO brings contemporary fashion to Myanmar with a curated collection of premium apparel.
+                    </p>
+                    <p>
+                        Our pieces are designed for the modern woman who values quality, comfort, and timeless style.
+                    </p>
+                </div>
             </div>
         </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title text-center">CONTACT US</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3 class="contact-title">Get in Touch</h3>
+                        <p class="contact-text">
+                            We'd love to hear from you! Visit our store or reach out through any of these channels:
+                        </p>
+                        <div class="contact-details">
+                            <p class="contact-item">
+                                <i class="fas fa-map-marker-alt contact-icon"></i>
+                                <span>123 Fashion Street, Mandalay, Myanmar</span>
+                            </p>
+                            <p class="contact-item">
+                                <i class="fas fa-phone contact-icon"></i>
+                                <span>+95 123 456 789</span>
+                            </p>
+                            <p class="contact-item">
+                                <i class="fas fa-envelope contact-icon"></i>
+                                <span>info@ivystudiomdy.com</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="store-hours">
+                        <h3 class="contact-title">Store Hours</h3>
+                        <ul class="hours-list">
+                            <li class="hours-item">
+                                <span>Monday - Friday</span>
+                                <span>10:00 AM - 8:00 PM</span>
+                            </li>
+                            <li class="hours-item">
+                                <span>Saturday</span>
+                                <span>10:00 AM - 9:00 PM</span>
+                            </li>
+                            <li class="hours-item">
+                                <span>Sunday</span>
+                                <span>11:00 AM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Newsletter -->
-        <section class="py-12">
-            <div class="container mx-auto px-4 text-center max-w-2xl">
-                <h2 class="text-2xl font-bold mb-2 letter-spacing-wide">JOIN OUR NEWSLETTER</h2>
-                <p class="mb-6 text-gray-600">Subscribe for exclusive offers and style updates</p>
-                <form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+        <section class="newsletter-section">
+            <div class="container">
+                <h2 class="section-title text-center">JOIN OUR NEWSLETTER</h2>
+                <p class="newsletter-subtext text-center">Subscribe for exclusive offers and style updates</p>
+                <form id="newsletter-form" class="newsletter-form">
                     <input 
                         type="email" 
+                        id="newsletter-email"
                         placeholder="Your email address" 
-                        class="flex-grow px-4 py-2 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-black"
+                        class="newsletter-input"
                         required
                     >
-                    <button 
-                        type="submit"
-                        class="px-6 py-2 bg-black text-white hover:bg-gray-800 transition"
-                    >
-                        SUBSCRIBE
-                    </button>
+                    <button type="submit" class="btn btn-primary newsletter-btn">SUBSCRIBE</button>
                 </form>
             </div>
         </section>
     </main>
+    
     <!-- Footer -->
-    <footer class="border-t border-gray-200 bg-white">
-        <div class="container mx-auto px-4 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <h2 class="text-2xl font-bold letter-spacing-wide">
-                        <span class="block">IVY</span>
-                        <span class="block">STUDIO</span>
-                        <span class="block mt-1 text-sm tracking-[0.3em]">MANDALAY</span>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="footer-logo">
+                        <span class="logo-line">IVY</span>
+                        <span class="logo-line">STUDIO</span>
+                        <span class="logo-subtext">MANDALAY</span>
                     </h2>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 md:mb-0">
-                    <div>
-                        <h3 class="font-bold mb-3 uppercase text-sm tracking-wider">Shop</h3>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-600 hover:underline text-sm">New Arrivals</a></li>
-                            <li><a href="#" class="text-gray-600 hover:underline text-sm">Best Sellers</a></li>
-                            <li><a href="#" class="text-gray-600 hover:underline text-sm">Dresses</a></li>
-                            <li><a href="#" class="text-gray-600 hover:underline text-sm">Tops</a></li>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-links">
+                        <h3 class="footer-links-title">Shop</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="#" class="footer-link">New Arrivals</a></li>
+                            <li><a href="#" class="footer-link">Best Sellers</a></li>
+                            <li><a href="#" class="footer-link">Dresses</a></li>
+                            <li><a href="#" class="footer-link">Tops</a></li>
+                            <li><a href="#" class="footer-link">Bottoms</a></li>
+                            <li><a href="#" class="footer-link">Accessories</a></li>
                         </ul>
                     </div>
-                    <div>
-                        <h3 class="font-bold mb-3 uppercase text-sm tracking-wider">Info</h3>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-600 hover:underline text-sm">About Us</a></li>
-                            <li><a href="#" class="text-gray-600 hover:underline text-sm">Contact</a></li>
-                            <li><a href="#" class="text-gray-600 hover:underline text-sm">Shipping</a></li>
-                            <li><a href="#" class="text-gray-600 hover:underline text-sm">Returns</a></li>
+                    <div class="footer-links">
+                        <h3 class="footer-links-title">Info</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="#about" class="footer-link">About Us</a></li>
+                            <li><a href="#contact" class="footer-link">Contact</a></li>
+                            <li><a href="#" class="footer-link">Shipping</a></li>
+                            <li><a href="#" class="footer-link">Returns</a></li>
+                            <li><a href="#" class="footer-link">FAQ</a></li>
                         </ul>
                     </div>
-                    <div>
-                        <h3 class="font-bold mb-3 uppercase text-sm tracking-wider">Legal</h3>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-600 hover:underline text-sm">Privacy Policy</a></li>
-                            <li><a href="#" class="text-gray-600 hover:underline text-sm">Terms of Service</a></li>
+                    <div class="footer-links">
+                        <h3 class="footer-links-title">Legal</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                            <li><a href="#" class="footer-link">Terms of Service</a></li>
+                            <li><a href="#" class="footer-link">Cookie Policy</a></li>
                         </ul>
                     </div>
-                    <div>
-                        <h3 class="font-bold mb-3 uppercase text-sm tracking-wider">Connect</h3>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-gray-600 hover:text-black">
+                    <div class="footer-links">
+                        <h3 class="footer-links-title">Connect</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="#" class="text-gray-600 hover:text-black">
+                            <a href="#" class="social-link" aria-label="Facebook">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="#" class="text-gray-600 hover:text-black">
+                            <a href="#" class="social-link" aria-label="Twitter">
                                 <i class="fab fa-twitter"></i>
                             </a>
+                            <a href="#" class="social-link" aria-label="Pinterest">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
                         </div>
+                        <p class="footer-text">
+                            Sign up for our newsletter
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-200 mt-8 pt-6 text-center text-sm text-gray-500">
-                <p>&copy; 2023 IVY STUDIO MANDALAY. All rights reserved.</p>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2023 IVY STUDIO MANDALAY. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    <script>
-        // Loading screen
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loading').classList.add('fade-out');
-                setTimeout(function() {
-                    document.getElementById('loading').style.display = 'none';
-                }, 500);
-            }, 1500);
-        });
-        // Search toggle
-        document.getElementById('search-toggle').addEventListener('click', function() {
-            const searchBar = document.getElementById('search-bar');
-            if (searchBar.classList.contains('opacity-0')) {
-                searchBar.classList.remove('-translate-y-full', 'opacity-0');
-            } else {
-                searchBar.classList.add('-translate-y-full', 'opacity-0');
-            }
-        });
-        // Close search when clicking outside
-        document.addEventListener('click', function(event) {
-            const searchBar = document.getElementById('search-bar');
-            const searchToggle = document.getElementById('search-toggle');
-            if (!searchBar.contains(event.target) && 
-                !searchToggle.contains(event.target) && 
-                !searchBar.classList.contains('opacity-0')) {
-                searchBar.classList.add('-translate-y-full', 'opacity-0');
-            }
-        });
-        // Add to cart functionality
-        const addToCartButtons = document.querySelectorAll('a[href="#"]');
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const product = this.closest('.product-card').querySelector('h3').textContent;
-                alert(`Added ${product} to cart!`);
-                // Update cart count (in a real app, this would be more sophisticated)
-                const cartCount = document.querySelector('.fa-shopping-bag + span');
-                cartCount.textContent = parseInt(cartCount.textContent) + 1;
-            });
-        });
-        // Newsletter form submission
-        const newsletterForm = document.querySelector('form');
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            alert(`Thank you for subscribing with ${email}!`);
-            this.reset();
-        });
-    </script>
+    
+    <script src="./js/main.js"></script>
 </body>
 </html>
